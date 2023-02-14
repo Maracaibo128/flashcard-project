@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { readDeck, updateDeck } from "../utils/api/index";
+import NameAndDescriptionForm from "./NameAndDescriptionForm";
 
 function EditDeck() {
     const history = useHistory();
@@ -58,40 +59,13 @@ function EditDeck() {
                 </li>
                 <li className="breadcrumb-item active">Edit Deck</li>
             </ol>
-            <form onSubmit={handleSubmit}>
-                <h1>Edit Deck</h1>
-                <div className="form-group">
-                    <label>Name</label>
-                    <input
-                        id="name"
-                        name="name"
-                        className="form-control"
-                        onChange={handleChange}
-                        type="text"
-                        value={deck.name}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Description</label>
-                    <textarea
-                        id="description"
-                        name="description"
-                        className="form-control"
-                        onChange={handleChange}
-                        type="text"
-                        value={deck.description}
-                    />
-                </div>
-                <button
-                    className="btn btn-secondary mx-1"
-                    onClick={() => handleCancel()}
-                >
-                    Cancel
-                </button>
-                <button className="btn btn-primary mx-1" type="submit">
-                    Submit
-                </button>
-            </form>
+            
+            <NameAndDescriptionForm handleCancel={handleCancel} 
+            handleChange={handleChange} 
+            handleSubmit={handleSubmit} 
+            mode="Edit"
+            />
+
         </div>
     );
 }

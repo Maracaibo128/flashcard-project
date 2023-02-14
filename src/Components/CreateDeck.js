@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { createDeck } from "../utils/api/index";
+import NameAndDescriptionForm from "./NameAndDescriptionForm";
 
 function CreateDeck() {
     const history = useHistory();
@@ -40,37 +41,14 @@ function CreateDeck() {
                 </li>
                 <li className="breadcrumb-item active">Create deck</li>
             </ol>
-            <form onSubmit={(event) => handleSubmit(event)}>
-                <h1>Create Deck</h1>
-                <div className="form-group">
-                    <label>Name</label>
-                    <input  
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="form-control"
-                        onChange={handleChange}
-                        value={newDeck.name}
-                        />
-                </div>
-                <div className="form-group">
-                    <label>Description</label>
-                    <textarea
-                        type="text"
-                        id="description"
-                        name="description"
-                        className="form-control"
-                        onChange={handleChange}
-                        value={newDeck.description}
-                        />
-                </div>
-                <button
-                    className="btn btn-secondary m-1 p-1"
-                    onClick={() => handleCancel()}>Cancel</button>
-                <button
-                    className="btn btn-primary m-1 p-1"
-                    type="submit">Submit</button>
-            </form>
+
+            <NameAndDescriptionForm 
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            handleCancel={handleCancel}
+            mode="Create"
+            />
+
         </div>
     )
 

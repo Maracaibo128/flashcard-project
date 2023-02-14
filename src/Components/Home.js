@@ -29,7 +29,7 @@ fetchData();
 async function handleDelete(deckElement) {
     if (
         window.confirm(
-            `Delete this deck?`
+            `Delete this deck? You will not be able to recover it.`
         )
     ) {
         //this reloads the page
